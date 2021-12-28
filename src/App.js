@@ -85,7 +85,7 @@ function App() {
                {/* Dispatching Increment Bird function */}
               {/* <button onClick={() => dispatch(incrementBird(bird.name))}><span role="img" aria-label="add">➕</span></button> */}
               <button onClick={() => dispatch(incrementBird(bird.name))}><span role="img" aria-label="add" style={{ fontSize: 25 }}>+</span></button>
-              <button><span style={{ fontSize: 20 }}>{bird.views}</span></button>
+              <button style={{ pointerEvents: 'none' }}><span style={{ fontSize: 20 }}>{bird.views}</span></button>
               <button onClick={() => dispatch(decrementBird(bird.name))}><span role="img" aria-label="subtract" style={{ fontSize: 25 }}>−</span></button>
               </div>
           </li>
