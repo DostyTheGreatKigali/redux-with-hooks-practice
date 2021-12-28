@@ -20,13 +20,20 @@ function App() {
 
   // Dispatching Add Bird function
   const handleSubmit = event => {
-    if(birdName !== "") {
       setError(false);
       event.preventDefault();
       dispatch(addBird(birdName))
       setBird('');
-    }
   };
+  
+  // const handleSubmit = event => {
+  //   if(birdName !== "") {
+  //     setError(false);
+  //     event.preventDefault();
+  //     dispatch(addBird(birdName))
+  //     setBird('');
+  //   }
+  // };
   
   // const handleSubmit = event => {
   //   if(birdName === "") {
@@ -64,7 +71,9 @@ function App() {
           />
         </label>
         <div>
-          <button id="submit" type="submit">Add</button>
+          {/* DISABLE BUTTON UNTIL FORM IS FILLED */}
+          {/* https://reactgo.com/react-disable-button/ */}
+          <button disabled={!birdName} type="submit">Add</button>
         </div>
       </form>
       <ul>
