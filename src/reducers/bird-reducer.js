@@ -1,4 +1,4 @@
-import { ADD_BIRD, INCREMENT_BIRD, DECREMENT_BIRD  } from '../actions/types';
+import { ADD_BIRD, INCREMENT_BIRD, DECREMENT_BIRD, DELETE_BIRD  } from '../actions/types';
 
 // Default State when no state exists
 const defaultBirds = [
@@ -36,6 +36,16 @@ const defaultBirds = [
             {
             ...birdForDecrement,
             views: birdForDecrement.views - 1
+            }
+        ];
+    case DELETE_BIRD:
+        // const birdToDelete = state.find(b => action.bird === b.name);
+        // const birdsToDelete = state.filter(b => action.bird !== b.name);
+        return [
+            ...state,
+            {
+            name: action.bird,
+            views: null
             }
         ];
       default:

@@ -1,4 +1,4 @@
-import { ADD_BIRD, INCREMENT_BIRD, DECREMENT_BIRD } from './types';
+import { ADD_BIRD, INCREMENT_BIRD, DECREMENT_BIRD, DELETE_BIRD } from './types';
 
 // ACTIONS CAN ONLY 
 
@@ -24,6 +24,13 @@ export function incrementBird(bird) {
 export function decrementBird(bird) {
       return {
         type: DECREMENT_BIRD,
+        bird
+      }
+}
+  
+export function removeBird(bird) {
+      return {
+        type: DELETE_BIRD,
         bird
       }
 }
