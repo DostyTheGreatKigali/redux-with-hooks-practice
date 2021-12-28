@@ -4,9 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import birdStore from '../src/store'
-// import { createStore } from 'redux';
-// import birdApp from './store/birds/birds';
+import { createStore } from 'redux';
+import birdApp from './store/birds/birds';
 // const store = createStore(() => ({
 //   birds: [
 //     {
@@ -16,11 +15,11 @@ import birdStore from '../src/store'
 //   ]
 // }), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-// const store = createStore(birdApp, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(birdApp, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={birdStore}>
+    <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>,

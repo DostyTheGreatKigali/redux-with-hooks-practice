@@ -6,10 +6,6 @@ const INCREMENT_BIRD = 'INCREMENT_BIRD';
 
 // Actions with Type
 export function addBird(bird) {
-  // if(bird === "") {
-  //   alert("Supply a value for Bird Name");
-  //   return;
-  // }
   return {
     type: ADD_BIRD,
     bird,
