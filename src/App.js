@@ -7,7 +7,7 @@ import { addBird, incrementBird, decrementBird } from '../src/actions/birdAction
 function App() {
   // HANDLING LOCAL state
   const [birdName, setBird] = useState('');
-  const [error, setError] = useState(false);
+  // const [error, setError] = useState(false);
   // Handling GLOBAL state
   // THIS USE SELECTOR CAN CAUSE UNEXPECTED RESULTS
   // const birds = useSelector(state => state.birds);
@@ -54,12 +54,12 @@ function App() {
   return (
     <div className="wrapper">
       <h1>Bird List</h1>
-       {
+       {/* {
         error ? <div style={{ height: 200, textAlign: 'center', backgroundColor: 'red', color: 'white'}}>
           <h3 style={{ color: 'white' }}>Supply a value for Bird Name</h3>
         </div> : null
       }
-        
+         */}
       <form onSubmit={handleSubmit}> 
         <label>
           <p>
@@ -81,10 +81,11 @@ function App() {
           <li key={bird.name}>
             <h3>{bird.name}</h3>
             <div>
-              Views: {bird.views}
+            Views: 
                {/* Dispatching Increment Bird function */}
               {/* <button onClick={() => dispatch(incrementBird(bird.name))}><span role="img" aria-label="add">➕</span></button> */}
               <button onClick={() => dispatch(incrementBird(bird.name))}><span role="img" aria-label="add" style={{ fontSize: 25 }}>+</span></button>
+              <button><span style={{ fontSize: 20 }}>{bird.views}</span></button>
               <button onClick={() => dispatch(decrementBird(bird.name))}><span role="img" aria-label="subtract" style={{ fontSize: 25 }}>−</span></button>
               </div>
           </li>
