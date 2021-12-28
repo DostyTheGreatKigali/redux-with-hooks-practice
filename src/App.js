@@ -3,8 +3,6 @@ import BirdList from './components/BirdsList';
 import AddBird from './components/AddBird';
 
 function App() {
-  
-
 
   return (
     <div className="wrapper">
