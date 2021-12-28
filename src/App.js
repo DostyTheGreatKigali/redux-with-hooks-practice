@@ -20,7 +20,7 @@ function App() {
 
   // Dispatching Add Bird function
   const handleSubmit = event => {
-      setError(false);
+      // setError(false);
       event.preventDefault();
       dispatch(addBird(birdName))
       setBird('');
