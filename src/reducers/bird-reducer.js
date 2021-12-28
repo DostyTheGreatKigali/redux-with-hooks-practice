@@ -1,4 +1,4 @@
-import { ADD_BIRD, INCREMENT_BIRD  } from '../actions/types';
+import { ADD_BIRD, INCREMENT_BIRD, DECREMENT_BIRD  } from '../actions/types';
 
 // Default State when no state exists
 const defaultBirds = [
@@ -26,6 +26,16 @@ const defaultBirds = [
             {
             ...bird,
             views: bird.views + 1
+            }
+        ];
+    case DECREMENT_BIRD:
+        const birdForDecrement = state.find(b => action.bird === b.name);
+        const birdsForDecrement = state.filter(b => action.bird !== b.name);
+        return [
+            ...birdsForDecrement,
+            {
+            ...birdForDecrement,
+            views: birdForDecrement.views - 1
             }
         ];
       default:

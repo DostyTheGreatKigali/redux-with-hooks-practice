@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import './App.css';
-import { addBird, incrementBird } from '../src/store/birds/birds';
+// import { addBird, incrementBird } from '../src/store/birds/birds';
+import { addBird, incrementBird, decrementBird } from '../src/actions/birdActions';
 
 function App() {
   // HANDLING LOCAL state
@@ -19,20 +20,29 @@ function App() {
 
   // Dispatching Add Bird function
   const handleSubmit = event => {
-    if(birdName === "") {
-      setError(true);
-       //  alert("Supply a value for Bird Name");
-        // console.log("Supply a value for Bird Name")
-        // setTimeout(() => {
-        //   return;
-        //   }, 2000);
-        return;
-      }
-    setError(false);
-    event.preventDefault();
-    dispatch(addBird(birdName))
-    setBird('');
+    if(birdName !== "") {
+      setError(false);
+      event.preventDefault();
+      dispatch(addBird(birdName))
+      setBird('');
+    }
   };
+  
+  // const handleSubmit = event => {
+  //   if(birdName === "") {
+  //     setError(true);
+  //      //  alert("Supply a value for Bird Name");
+  //       // console.log("Supply a value for Bird Name")
+  //       // setTimeout(() => {
+  //       //   return;
+  //       //   }, 2000);
+  //       return;
+  //     }
+  //   setError(false);
+  //   event.preventDefault();
+  //   dispatch(addBird(birdName))
+  //   setBird('');
+  // };
 
   return (
     <div className="wrapper">
@@ -54,7 +64,7 @@ function App() {
           />
         </label>
         <div>
-          <button type="submit">Add</button>
+          <button id="submit" type="submit">Add</button>
         </div>
       </form>
       <ul>
@@ -64,7 +74,9 @@ function App() {
             <div>
               Views: {bird.views}
                {/* Dispatching Increment Bird function */}
-              <button onClick={() => dispatch(incrementBird(bird.name))}><span role="img" aria-label="add">➕</span></button>
+              {/* <button onClick={() => dispatch(incrementBird(bird.name))}><span role="img" aria-label="add">➕</span></button> */}
+              <button onClick={() => dispatch(incrementBird(bird.name))}><span role="img" aria-label="add" style={{ fontSize: 25 }}>+</span></button>
+              <button onClick={() => dispatch(decrementBird(bird.name))}><span role="img" aria-label="subtract" style={{ fontSize: 25 }}>−</span></button>
               </div>
           </li>
         ))}
